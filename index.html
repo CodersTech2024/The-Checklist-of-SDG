@@ -22,7 +22,6 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             overflow: hidden;
-            position: relative;
         }
         .progress-bar-fill {
             height: 100%;
@@ -39,6 +38,7 @@
 <body>
     <h1>Sustainable Actions Checklist</h1>
 
+    <!-- Overall Progress -->
     <div id="overall-progress" class="overall-progress">
         <h2>Overall Progress</h2>
         <div class="progress-bar">
@@ -46,19 +46,179 @@
         </div>
     </div>
 
+    <!-- Checklists for 10 Days -->
+    <div id="checklists">
+        <!-- Loop for each day -->
+        <script>
+            const totalDays = 10;
+            const daysElement = (" 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Actions Checklist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .day-section {
+            margin-bottom: 20px;
+        }
+        .progress-container {
+            margin: 10px 0;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #f3f3f3;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #4caf50;
+            width: 0%;
+            transition: width 0.3s ease-in-out;
+        }
+        .overall-progress {
+            font-size: 1.2em;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sustainable Actions Checklist</h1>
+
+    <!-- Overall Progress -->
+    <div id="overall-progress" class="overall-progress">
+        <h2>Overall Progress</h2>
+        <div class="progress-bar">
+            <div id="overall-progress-bar" class="progress-bar-fill"></div>
+        </div>
+    </div>
+
+    <!-- Checklists for 10 Days -->
+    <div id="checklists">
+        <!-- Day-wise sections -->
+        <script>
+            const totalDays = 10;
+            const actionsPerDay = 5;
+            let totalChecked = 0;
+
+            function updateProgress(dayIndex) {
+                const checkboxes = document.querySelectorAll(`.day${dayIndex} input[type="checkbox"]`);
+                const progressBar = document.querySelector(`#day${dayIndex}-progress-bar`);
+                const totalCompleted = (》 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Actions Checklist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .day-section {
+            margin-bottom: 20px;
+        }
+        .progress-container {
+            margin: 10px 0;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #f3f3f3;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #4caf50;
+            width: 0%;
+            transition: width 0.3s ease-in-out;
+        }
+        .overall-progress {
+            font-size: 1.2em;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sustainable Actions Checklist</h1>
+
+    <!-- Overall Progress -->
+    <div id="overall-progress" class="overall-progress">
+        <h2>Overall Progress</h2>
+        <div class="progress-bar">
+            <div id="overall-progress-bar" class="progress-bar-fill"></div>
+        </div>
+    </div>
+
+    <!-- Checklists for 10 Days -->
+    <div id="checklists">
+        <!-- Generate days dynamically -->
+    </div>
+
     <script>
         const totalDays = 10;
         const actionsPerDay = 5;
-        let totalChecked = 0;
+        const actionsList = [
+            "Use reusable water bottles",
+            "Turn off lights when not needed",
+            "Walk or cycle instead of driving",
+            "Sort waste for recycling",
+            "Use energy-efficient devices"
+        ];
 
+        let totalChecked = 0;
+        const totalActions = totalDays * actionsPerDay;
+
+        const checklistContainer = document.getElementById('checklists');
+        const overallProgressBar = document.getElementById('overall-progress-bar');
+
+        // Create checklist for each day
+        for (let day = 1; day <= totalDays; day++) {
+            const daySection = document.createElement('div');
+            daySection.classList.add('day-section');
+            daySection.innerHTML = `
+                <h2>Day ${day}</h2>
+                <div id="day${day}-progress" class="progress-container">
+                    <div class="progress-bar">
+                        <div id="day${day}-progress-bar" class="progress-bar-fill"></div>
+                    </div>
+                </div>
+                <ul id="day${day}-checklist" class="checklist">
+                    ${actionsList.map(action => `<li><label><input type="checkbox" onchange="updateProgress(${day})"> ${action}</label></li>`).join('')}
+                </ul>
+            `;
+            checklistContainer.appendChild(daySection);
+        }
+
+        // Update progress bars
         function updateProgress(dayIndex) {
-            const checkboxes = document.querySelectorAll(`.day${dayIndex} input[type="checkbox"]`);
-            const progressBar = document.querySelector(`#day${dayIndex}-progress-bar`);
-            const totalCompleted = Array.from(checkboxes).filter(cb => cb.checked).length;
-            const percentage = (totalCompleted / actionsPerDay) * 100;
-            passvalue`/> ;
+            const dayCheckboxes = document.querySelectorAll(`#day${dayIndex}-checklist input[type="checkbox"]`);
+            const dayProgressBar = document.getElementById(`day${dayIndex}-progress-bar`);
+            const dayChecked = Array.from(dayCheckboxes).filter(cb => cb.checked).length;
+
+            // Update day's progress bar
+            const dayPercentage = (dayChecked / actionsPerDay) * 100;
+            dayProgressBar.style.width = `${dayPercentage}%`;
+
+            // Update overall progress
+            totalChecked = Array.from(document.querySelectorAll('input[type="checkbox"]')).filter(cb => cb.checked).length;
+            const overallPercentage = (totalChecked / totalActions) * 100;
+            overallProgressBar.style.width = `${overallPercentage}%`;
         }
     </script>
+</body>
+</html>
 
-
-### Iter to will justdayfor with to teach will justuserco_dayresetwhene fi
