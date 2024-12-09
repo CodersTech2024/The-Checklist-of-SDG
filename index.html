@@ -6,32 +6,81 @@
     <title>Sustainable Actions Checklist</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             margin: 20px;
+            background: linear-gradient(to bottom, #a0c4ff, #80ed99);
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #fff;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+        h2 {
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
         .progress-container {
             margin: 20px 0;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 10px;
+            border-radius: 10px;
         }
         .progress-bar {
             width: 100%;
-            height: 20px;
+            height: 30px;
             background-color: #f3f3f3;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 15px;
             overflow: hidden;
+            box-shadow: inset 0px 3px 5px rgba(0, 0, 0, 0.2);
         }
         .progress-bar-fill {
             height: 100%;
             background-color: #4caf50;
             width: 0%;
-            transition: width 0.3s ease-in-out;
+            transition: width 0.5s ease-in-out;
+            border-radius: 15px;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
         }
         .checklist {
             list-style: none;
             padding: 0;
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         }
         .checklist li {
-            margin: 10px 0;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+        .checklist label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1em;
+        }
+        .checklist input[type="checkbox"] {
+            transform: scale(1.5);
+            cursor: pointer;
+        }
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 1.1em;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        footer a {
+            color: #ffdb58;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -48,8 +97,12 @@
 
     <!-- Checklist -->
     <ul id="checklist" class="checklist">
-        <!-- Actions will be generated dynamically -->
+        <!-- Actions will be dynamically generated -->
     </ul>
+
+    <footer>
+        <p>Created with ♥ for sustainability. Learn more about <a href="#">eco-friendly practices</a>.</p>
+    </footer>
 
     <script>
         const totalDays = 10;
@@ -67,14 +120,14 @@
         const totalActions = totalDays * actionsPerDay;
         let totalChecked = 0;
 
-        // Generate combined checklist
+        // Generate unified checklist
         for (let day = 1; day <= totalDays; day++) {
             actionsList.forEach((action, index) => {
                 const listItem = document.createElement('li');
                 listItem.innerHTML = `
                     <label>
                         <input type="checkbox" onchange="updateProgress()"> 
-                        Day ${day} - Action ${index + 1}: ${action}
+                        <span>Day ${day} - Action ${index + 1}: ${action}</span>
                     </label>
                 `;
                 checklistElement.appendChild(listItem);
