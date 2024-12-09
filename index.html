@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Actions Checklist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .day-section {
+            margin-bottom: 20px;
+        }
+        .progress-container {
+            margin: 10px 0;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #f3f3f3;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #4caf50;
+            width: 0%;
+            transition: width 0.3s ease-in-out;
+        }
+        .overall-progress {
+            font-size: 1.2em;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sustainable Actions Checklist</h1>
+
+    <div id="overall-progress" class="overall-progress">
+        <h2>Overall Progress</h2>
+        <div class="progress-bar">
+            <div id="overall-progress-bar" class="progress-bar-fill"></div>
+        </div>
+    </div>
+
+    <script>
+        const totalDays = 10;
+        const actionsPerDay = 5;
+        let totalChecked = 0;
+
+        function updateProgress(dayIndex) {
+            const checkboxes = document.querySelectorAll(`.day${dayIndex} input[type="checkbox"]`);
+            const progressBar = document.querySelector(`#day${dayIndex}-progress-bar`);
+            const totalCompleted = Array.from(checkboxes).filter(cb => cb.checked).length;
+            const percentage = (totalCompleted / actionsPerDay) * 100;
+            passvalue`/> ;
+        }
+    </script>
+
+
+### Iter to will justdayfor with to teach will justuserco_dayresetwhene fi
